@@ -13,13 +13,13 @@ public class GeneralSteps {
     private KristiniSteps kristiniSteps;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         webDriver = WebDriverFactory.getWebDriver();
         kristiniSteps = new KristiniSteps();
     }
 
     @After
-    public void tearDown (){
+    public void tearDown() {
         WebDriverFactory.quitWebDriver();
     }
 

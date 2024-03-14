@@ -21,7 +21,7 @@ public class KristiniPage {
         this.webDriver = webDriver;
     }
 
-    public void navigateToStringFromNavigationMenu(String categoryTitle){
+    public void navigateToStringFromNavigationMenu(String categoryTitle) {
         List<WebElement> links = webDriver.findElements(By.cssSelector("div[style=\"float:right; width:770px; margin-top:65px;\"] ul.main > li a"));
         for (WebElement link : links) {
             try {
@@ -37,7 +37,7 @@ public class KristiniPage {
         throw new NoSuchElementException("Link with text '" + categoryTitle + "' not found in navigation menu.");
     }
 
-    public void verifySpecificPageIsLoaded(String pageName){
+    public void verifySpecificPageIsLoaded(String pageName) {
         String pageTitleText = webDriver.getTitle().replaceAll(" - kristini-bg.com", "");
         assertEquals(pageTitleText, pageName);
     }

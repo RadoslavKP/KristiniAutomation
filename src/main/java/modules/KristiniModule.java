@@ -1,4 +1,5 @@
 package modules;
+
 import pages.KristiniPage;
 
 public class KristiniModule {
@@ -9,11 +10,11 @@ public class KristiniModule {
     }
 
 
-    public void navigateToStringFromNavigationMenu(String categoryTitle){
+    public void navigateToStringFromNavigationMenu(String categoryTitle) {
         kristiniPage.navigateToStringFromNavigationMenu(categoryTitle);
     }
 
-    public void verifySpecificPageIsLoaded(String pageName){
+    public void verifySpecificPageIsLoaded(String pageName) {
         kristiniPage.verifySpecificPageIsLoaded(pageName);
     }
 
