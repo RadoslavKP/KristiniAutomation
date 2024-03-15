@@ -18,4 +18,24 @@ public class KristiniModule {
         kristiniPage.verifySpecificPageIsLoaded(pageName);
     }
 
+    public void navigateToSubCategoryFromPLP(String subCategory) {
+        kristiniPage.navigateToSubCategoryFromPLP(subCategory);
+    }
+
+    public void openSpecificProductFromPLP(String productName) {
+        kristiniPage.openSpecificProductFromPLP(productName);
+    }
+
+    public void verifyPDPIsLoaded() {
+        kristiniPage.verifyPDPIsLoaded();
+    }
+
+    public void clickImageNumberFromSlider(int imageNumber) {
+        kristiniPage.clickImageNumberFromSlider(imageNumber);
+    }
+
+    public void verifyGalleryPage() {
+        kristiniPage.verifyGalleryPage();
+    }
+
 }

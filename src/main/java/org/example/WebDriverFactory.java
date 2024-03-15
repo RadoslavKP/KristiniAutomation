@@ -1,9 +1,13 @@
 package org.example;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.util.List;
 
 public class WebDriverFactory {
     private static WebDriver webDriver;
@@ -25,4 +29,23 @@ public class WebDriverFactory {
             webDriver = null;
         }
     }
+
+    public boolean isElementPresented (final By locator) {
+        return !findElements(locator).isEmpty();
+    }
+
+    public List<WebElement> findElements(By locator) {
+        return webDriver.findElements(locator);
+    }
+
+    public WebElement findElement(By locator) {
+        return webDriver.findElement(locator);
+    }
+
+    public boolean isElementDisplayed (final By locator) {
+        return isElementPresented(locator) && findElement(locator).isDisplayed() &&
+                findElement(locator).getSize().getHeight() > 0 &&
+                findElement(locator).getSize().getWidth() > 0;
+    }
+
 }

@@ -26,4 +26,30 @@ public class KristiniSteps {
     public void verifySpecificPageIsLoaded(String pageName) {
         kristiniModule.verifySpecificPageIsLoaded(pageName);
     }
+
+    @When("The user navigate to Sub-Category {string}")
+    public void navigateToSubCategoryFromPLP(String subCategory) {
+        kristiniModule.navigateToSubCategoryFromPLP(subCategory);
+    }
+
+    @When("The user open product with name {string}")
+    public void openSpecificProductFromPLP(String productName) {
+        kristiniModule.openSpecificProductFromPLP(productName);
+    }
+
+    @When("Verify PDP is opened")
+    public void verifyPDPIsLoaded() {
+        kristiniModule.verifyPDPIsLoaded();
+    }
+
+    @When("The user clicks on the {int} image of the slider")
+    public void clickImageNumberFromSlider(int imageNumber) {
+        kristiniModule.clickImageNumberFromSlider(imageNumber);
+    }
+
+    @When("Verify Gallery page image slider is displayed")
+    public void verifyGalleryPage() {
+        kristiniModule.verifyGalleryPage();
+    }
+
 }
