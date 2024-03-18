@@ -7,10 +7,10 @@ This would be helpful for people who wonder how does an Automation Project in a 
 like.
 We are using Java + Selenium + Cucumber.
 For Project Management Tools we are using - Maven.
-With Maven I have selector the TestNG library.
-The idea is to integrate Jenkins as an CI/CD tool (Which means we will use Jenkins to automate the
-run cycle of the project itself) but currently that is not yet implemented.
-Other further ideas are to use RestAPI to create some API Automation test, but again that will be done
+With Maven I have added as a dependency the TestNG library.
+The project is connected to Jenkins and using a Jenkins Maven job all tests under KristiniRegression
+features are executed, also Cucumber reports with images are uploaded in Jenkins using a plugin.
+My further ideas are to use RestAPI to create some API Automation test, but again that will be done
 in the near future.
 I would try also to create an TestRun is TestRail and link the automation TCs to TCs in TestRail.
 With this integration + Jenkins we would be able to have a Automation TestRun which auto-updates the
