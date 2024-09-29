@@ -14,12 +14,13 @@ public class KristiniPage {
 
     private WebDriver webDriver;
 
-    private static final By CATEGORY_LINKS = By.cssSelector("div[style=\"float:right; width:770px; margin-top:65px;\"] ul.main > li a");
+    private static final By CATEGORY_LINKS = By.cssSelector(".header-bottom .menu-item");
     private static final By SUB_CATEGORY_LINKS = By.cssSelector(".category a");
     private static final By PRODUCT_TILES_NAME = By.cssSelector(".catalogItem strong");
     private static final By PDP_ITEM_DESCRIPTION = By.cssSelector(".itemDescription");
-    private static final By GALLERY_IMG_NUMBER_BUTTONS = By.cssSelector(".bannerPages a");
-    private static final By GALLERY_PAGE = By.cssSelector(".bannerRotator .bannerItems");
+    private static final By GALLERY_IMG_NUMBER = By.cssSelector(".modula-item-content");
+    private static final By GALLERY_IMG_EXPANDED = By.cssSelector(".has-image.is-selected");
+    private static final By PAGE_TITLE = By.cssSelector(".section-title");
 
     public KristiniPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -42,8 +43,8 @@ public class KristiniPage {
     }
 
     public void verifySpecificPageIsLoaded(String pageName) {
-        String pageTitleText = webDriver.getTitle().replaceAll(" - kristini-bg.com", "");
-        assertEquals(pageTitleText, pageName);
+        String pageTitleText = webDriver.findElement(PAGE_TITLE).getText();
+        assertTrue(pageTitleText.equalsIgnoreCase(pageName));
     }
 
     public void navigateToSubCategoryFromPLP(String subCategory) {
@@ -83,26 +84,17 @@ public class KristiniPage {
         assertTrue(webDriverFactory.isElementDisplayed(PDP_ITEM_DESCRIPTION));
     }
 
-    public void clickImageNumberFromSlider(int imageNumber) {
-        List<WebElement> displayedImages = webDriver.findElements((GALLERY_IMG_NUMBER_BUTTONS));
-        for (WebElement displayedImage : displayedImages){
-            int displayedImageNumber = Integer.parseInt(displayedImage.getText().trim());
-            try {
-                if (displayedImageNumber == imageNumber) {
-                    displayedImage.click();
-                    Thread.sleep(5000);
-                    return;
-                }
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        throw new NoSuchElementException("Link with text '" + imageNumber + "' not found in navigation menu.");
-    }
-
-    public void verifyGalleryPage() {
+    public void clickImageOnGalleryPage(int imageNumber) {
+        List<WebElement> images = webDriver.findElements(GALLERY_IMG_NUMBER);
         WebDriverFactory webDriverFactory = new WebDriverFactory();
-        assertTrue(webDriverFactory.isElementDisplayed(GALLERY_PAGE));
+
+        if (imageNumber > 0 && imageNumber <= images.size()) {
+            images.get(imageNumber - 1).click();
+            assertTrue(webDriverFactory.isElementDisplayed(GALLERY_IMG_EXPANDED));
+        } else {
+            System.out.println("Invalid Number parameter: " + imageNumber);
+        }
+
     }
 
 }

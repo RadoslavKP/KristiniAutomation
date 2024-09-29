@@ -30,12 +30,8 @@ public class KristiniModule {
         kristiniPage.verifyPDPIsLoaded();
     }
 
-    public void clickImageNumberFromSlider(int imageNumber) {
-        kristiniPage.clickImageNumberFromSlider(imageNumber);
-    }
-
-    public void verifyGalleryPage() {
-        kristiniPage.verifyGalleryPage();
+    public void clickImageOnGalleryPage(int imageNumber) {
+        kristiniPage.clickImageOnGalleryPage(imageNumber);
     }
 
 }
