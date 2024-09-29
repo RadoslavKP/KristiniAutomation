@@ -1,5 +1,6 @@
 package org.example;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +15,7 @@ public class WebDriverFactory {
 
     public static WebDriver getWebDriver() {
         if (webDriver == null) {
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/drivers/chromedriver.exe");
+            WebDriverManager.chromedriver().setup();
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
             webDriver = new ChromeDriver(chromeOptions);
@@ -30,7 +31,7 @@ public class WebDriverFactory {
         }
     }
 
-    public boolean isElementPresented (final By locator) {
+    public boolean isElementPresented(final By locator) {
         return !findElements(locator).isEmpty();
     }
 
@@ -42,10 +43,9 @@ public class WebDriverFactory {
         return webDriver.findElement(locator);
     }
 
-    public boolean isElementDisplayed (final By locator) {
+    public boolean isElementDisplayed(final By locator) {
         return isElementPresented(locator) && findElement(locator).isDisplayed() &&
                 findElement(locator).getSize().getHeight() > 0 &&
                 findElement(locator).getSize().getWidth() > 0;
     }
-
 }
