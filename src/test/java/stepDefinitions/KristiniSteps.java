@@ -42,14 +42,9 @@ public class KristiniSteps {
         kristiniModule.verifyPDPIsLoaded();
     }
 
-    @When("The user clicks on the {int} image of the slider")
-    public void clickImageNumberFromSlider(int imageNumber) {
-        kristiniModule.clickImageNumberFromSlider(imageNumber);
-    }
-
-    @When("Verify Gallery page image slider is displayed")
-    public void verifyGalleryPage() {
-        kristiniModule.verifyGalleryPage();
+    @When("The user clicks on the {int} image on Gallery page")
+    public void clickImageOnGalleryPage(int imageNumber) {
+        kristiniModule.clickImageOnGalleryPage(imageNumber);
     }
 
 }
