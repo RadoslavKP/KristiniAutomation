@@ -9,7 +9,7 @@ import pages.KristiniPage;
 
 public class KristiniSteps {
 
-    private KristiniModule kristiniModule;
+    private final KristiniModule kristiniModule;
 
     public KristiniSteps() {
         WebDriver webDriver = WebDriverFactory.getWebDriver();
@@ -47,4 +47,13 @@ public class KristiniSteps {
         kristiniModule.clickImageOnGalleryPage(imageNumber);
     }
 
+    @When("The user clicks on {string} photo slider arrow and verify new image is displayed")
+    public void clickPhotoGalleryArrow(String arrowDirection) {
+        kristiniModule.clickPhotoGalleryArrow(arrowDirection);
+    }
+
+    @Then("The user closes the Gallery full screen image")
+    public void closeGalleryFullScreenImage() {
+        kristiniModule.closeGalleryFullScreenImage();
+    }
 }

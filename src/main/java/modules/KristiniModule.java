@@ -34,4 +34,12 @@ public class KristiniModule {
         kristiniPage.clickImageOnGalleryPage(imageNumber);
     }
 
+    public void clickPhotoGalleryArrow(String arrowDirection) {
+        kristiniPage.clickPhotoGalleryArrow(arrowDirection);
+    }
+
+    public void closeGalleryFullScreenImage() {
+        kristiniPage.closeGalleryFullScreenImage();
+    }
+
 }
