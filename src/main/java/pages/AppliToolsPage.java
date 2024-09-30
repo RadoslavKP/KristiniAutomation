@@ -6,13 +6,13 @@ import com.applitools.eyes.selenium.Eyes;
 import com.applitools.eyes.EyesRunner;
 import com.applitools.eyes.selenium.BrowserType;
 import com.applitools.eyes.selenium.Configuration;
+import com.applitools.eyes.selenium.fluent.Target;
 import com.applitools.eyes.visualgrid.model.ChromeEmulationInfo;
 import com.applitools.eyes.visualgrid.model.DesktopBrowserInfo;
 import com.applitools.eyes.visualgrid.model.DeviceName;
 import com.applitools.eyes.visualgrid.model.ScreenOrientation;
 import com.applitools.eyes.visualgrid.services.RunnerOptions;
 import com.applitools.eyes.visualgrid.services.VisualGridRunner;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AppliToolsPage {
@@ -21,8 +21,6 @@ public class AppliToolsPage {
     private Eyes eyes;
 
     private static final BatchInfo BATCH = new BatchInfo("Applitools Visual Test Batch");
-
-    private static final By APPLITOOLS_SELECTORS = By.cssSelector("NA");
 
     public AppliToolsPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -34,7 +32,6 @@ public class AppliToolsPage {
     public void initializeEyes() {
         EyesRunner runner = new VisualGridRunner(new RunnerOptions().testConcurrency(5));
         eyes = new Eyes(runner);
-
         Configuration config = new Configuration();
         config.setApiKey(System.getenv("dl7o1pGptpnR1ghCTxu5yp9W37wcQgR4vHPB5GqmbJ0110"));
         config.setBatch(BATCH);
@@ -52,10 +49,12 @@ public class AppliToolsPage {
      * Starts an Applitools visual test.
      */
     public void startVisualTest(String appName, String testName, int width, int height) {
+        eyes.setApiKey("dl7o1pGptpnR1ghCTxu5yp9W37wcQgR4vHPB5GqmbJ0110");
         if (eyes == null) {
             throw new IllegalStateException("Eyes not initialized. Call initializeEyes() first.");
         }
         eyes.open(webDriver, appName, testName, new RectangleSize(width, height));
+        eyes.check(Target.window());
     }
 
     /**
@@ -67,6 +66,10 @@ public class AppliToolsPage {
         }
     }
 
+    /**
+     * #TODO
+     * Additional check steps for specific elements
+     */
     public void checkPage(String name) {
         if (eyes != null) {
             eyes.checkWindow(name);

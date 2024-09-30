@@ -1,7 +1,7 @@
-@Placeholder
-Feature: Placeholder
+@kristiniVisualTestCases
+Feature: Visual Automation TCs for Krisitni-BG
 
-  @TC-3
+  @TC-4 @Visual
   Scenario Outline: Gallery Page Visual Test
     Given The user navigates to "<URL>" URL
     When The user enables AppliTools Eyes connection
@@ -11,5 +11,5 @@ Feature: Placeholder
     Then The user ends the AppliTools Eyes connection
 
     Examples:
-      | URL                     | Category       | App Name      | Test Name            |
-      | http://kristini-bg.com/ | Галерия        | KristiniBatch | Gallery Visual Test  |
+      | URL                     | Category | App Name      | Test Name           |
+      | http://kristini-bg.com/ | Галерия  | KristiniBatch | Gallery Visual Test |
