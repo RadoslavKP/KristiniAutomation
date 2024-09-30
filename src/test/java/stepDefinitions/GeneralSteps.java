@@ -10,12 +10,10 @@ import java.time.Duration;
 
 public class GeneralSteps {
     private WebDriver webDriver;
-    private KristiniSteps kristiniSteps;
 
     @Before
     public void setUp() {
         webDriver = WebDriverFactory.getWebDriver();
-        kristiniSteps = new KristiniSteps();
     }
 
     @After
