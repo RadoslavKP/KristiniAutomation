@@ -5,6 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -48,4 +51,10 @@ public class WebDriverFactory {
                 findElement(locator).getSize().getHeight() > 0 &&
                 findElement(locator).getSize().getWidth() > 0;
     }
+
+    public void waitForElementToBeClickable(By locator) {
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
 }

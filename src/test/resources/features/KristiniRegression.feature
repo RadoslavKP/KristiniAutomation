@@ -23,7 +23,7 @@ Feature: Automation TCs for Navigation Menu
 
     Examples:
       | URL                     | Category     | SubCategory      | ProductCategory   | ProductName  |
-      | http://kristini-bg.com/ | Цени Магазин | Хладилна Техника | Хладилни масла | Errecom      |
+      | http://kristini-bg.com/ | Цени Магазин | Хладилна Техника | Хладилни масла    | Errecom      |
 
   @TC-3
   Scenario Outline: Gallery Page Functionality
@@ -31,6 +31,9 @@ Feature: Automation TCs for Navigation Menu
     When The user navigates to "<Category>" from the Navigation Menu
     Then Verify "<Category>" page is loaded
     When The user clicks on the 3 image on Gallery page
+    When The user clicks on "Right" photo slider arrow and verify new image is displayed
+    When The user clicks on "Left" photo slider arrow and verify new image is displayed
+    Then The user closes the Gallery full screen image
 
     Examples:
       | URL                     | Category |
