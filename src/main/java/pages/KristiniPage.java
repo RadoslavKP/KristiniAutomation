@@ -14,7 +14,7 @@ import static org.testng.Assert.*;
 
 public class KristiniPage {
 
-    private WebDriver webDriver;
+    private final WebDriver webDriver;
 
     private static final By CATEGORY_LINKS = By.cssSelector(".header-bottom .menu-item");
     private static final By SUB_CATEGORY_LINKS = By.cssSelector(".category a");

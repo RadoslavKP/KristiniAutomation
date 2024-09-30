@@ -3,7 +3,7 @@ package modules;
 import pages.KristiniPage;
 
 public class KristiniModule {
-    private KristiniPage kristiniPage;
+    private final KristiniPage kristiniPage;
 
     public KristiniModule(KristiniPage kristiniPage) {
         this.kristiniPage = kristiniPage;

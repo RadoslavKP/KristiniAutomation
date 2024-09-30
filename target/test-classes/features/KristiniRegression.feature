@@ -1,5 +1,5 @@
 @kristiniRegression
-Feature: Automation TCs for Navigation Menu
+Feature: Automation Regression TCs for Kristini-BG
 
   @TC-1
   Scenario Outline: Validate Header Link Is Clickable
