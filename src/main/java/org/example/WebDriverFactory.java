@@ -15,6 +15,7 @@ import java.util.List;
 
 public class WebDriverFactory {
     private static WebDriver webDriver;
+    WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(60));
 
     public static WebDriver getWebDriver() {
         if (webDriver == null) {
@@ -52,9 +53,12 @@ public class WebDriverFactory {
                 findElement(locator).getSize().getWidth() > 0;
     }
 
-    public void waitForElementToBeClickable(By locator) {
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+    public void waitForElementToBeClickable(final By locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    public void waitForElementToBeDisplayed(final By locator) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
 }
