@@ -100,14 +100,12 @@ public class KristiniPage {
         String beforeClick = displayedImage.getAttribute("src");
         if(arrowDirection.equalsIgnoreCase("Right")){
             WebElement rightArrow = webDriver.findElement(GALLERY_ARROW_RIGHT_DIRECTION);
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].setAttribute('tabindex', '0');", rightArrow);
             rightArrow.click();
             String afterRightClick = displayedImage.getAttribute("src");
             assert beforeClick != null;
             assertFalse(beforeClick.equalsIgnoreCase(afterRightClick));
         }else if (arrowDirection.equalsIgnoreCase("Left")){
             WebElement leftArrow = webDriver.findElement(GALLERY_ARROW_LEFT_DIRECTION);
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].setAttribute('tabindex', '0');", leftArrow);
             leftArrow.click();
             String afterLeftClick = displayedImage.getAttribute("src");
             assert beforeClick != null;
