@@ -16,14 +16,12 @@ Feature: Automation Regression TCs for Kristini-BG
     Given The user navigates to "<URL>" URL
     When The user navigates to "<Category>" from the Navigation Menu
     When The user navigates to "<SubCategory>" from the Navigation Menu
-    When The user navigate to Sub-Category "<ProductCategory>"
     When The user open product with name "<ProductName>"
     Then Verify PDP is opened
 
-
     Examples:
-      | URL                     | Category     | SubCategory      | ProductCategory   | ProductName  |
-      | http://kristini-bg.com/ | Цени Магазин | Хладилна Техника | Хладилни масла    | Errecom      |
+      | URL                     | Category     | SubCategory      | ProductName  |
+      | http://kristini-bg.com/ | Цени магазин | Хладилна техника | Dixell       |
 
   @TC-3
   Scenario Outline: Gallery Page Functionality
