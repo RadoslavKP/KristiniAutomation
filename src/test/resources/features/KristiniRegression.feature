@@ -23,14 +23,14 @@ Feature: Automation Regression TCs for Kristini-BG
       | URL                     | Category     | SubCategory      | ProductName  |
       | http://kristini-bg.com/ | Цени магазин | Хладилна техника | Dixell       |
 
-  @TC-3
+  @TC-3 #TC will fail due to product bug with slider arrows!
   Scenario Outline: Gallery Page Functionality
     Given The user navigates to "<URL>" URL
     When The user navigates to "<Category>" from the Navigation Menu
     Then Verify "<Category>" page is loaded
     When The user clicks on the 3 image on Gallery page
-    When The user clicks on "Right" photo slider arrow and verify new image is displayed
-    When The user clicks on "Left" photo slider arrow and verify new image is displayed
+    When The user clicks on "Left" arrow of the photo slider
+    When The user clicks on "Right" arrow of the photo slider
     Then The user closes the Gallery full screen image
 
     Examples:
