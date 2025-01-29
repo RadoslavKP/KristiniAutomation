@@ -17,7 +17,6 @@ public class GeneralSteps {
     @Before
     public void setUp() {
         webDriver = WebDriverFactory.getWebDriver();
-        webDriver.manage().window().maximize();
     }
 
     @After

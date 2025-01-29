@@ -37,3 +37,18 @@ Feature: Automation Regression TCs for Kristini-BG
       | URL                     | Category |
       | http://kristini-bg.com/ | Галерия  |
 
+  @TC-4
+  Scenario Outline: Contact Us Page - Form Functionality
+    Given The user navigates to "<URL>" URL
+    When The user navigates to "<Category>" from the Navigation Menu
+    Then Verify "<Category>" page is loaded
+    And Verify that the Contact Us form is loaded
+    When The user submits the Contact Us Form
+    Then Verify Contact Us validation is triggered for mandatory fields
+    When The user populates the Contact Us form
+    When The user submits the Contact Us Form
+    Then Verify Contact Us form is submitted
+
+    Examples:
+      | URL                     | Category  |
+      | http://kristini-bg.com/ | Контакти  |
