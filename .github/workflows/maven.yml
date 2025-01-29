@@ -1,4 +1,4 @@
-name: Run Specific Cucumber Tests
+name: Run Tests
 on: [push, pull_request]
 
 jobs:
@@ -14,7 +14,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Run Specific Feature File
+      - name: Run Tests
         run: |
-          mvn clean test -Dwebdriver.headless=true \
-                         -Dcucumber.features="src/test/resources/features/KristiniRegression.feature"
+          mvn clean test \
+            -Dwebdriver.headless=true \
+            -Dcucumber.features="src/test/resources/features/KristiniRegression.feature"
+        env:
+          GITHUB_ACTIONS: "true"
