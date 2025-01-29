@@ -61,4 +61,8 @@ public class WebDriverFactory {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    public void waitForElementToNotBeDisplayed(final By locator) {
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
+
 }
