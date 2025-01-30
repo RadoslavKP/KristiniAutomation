@@ -53,7 +53,19 @@ public class WebDriverFactory {
                 findElement(locator).getSize().getWidth() > 0;
     }
 
+    public boolean isElementSelected(final By locator) {
+        return webDriver.findElement(locator).isSelected();
+    }
+
+    public boolean isElementSelected(final WebElement locator) {
+        return locator.isSelected();
+    }
+
     public void waitForElementToBeClickable(final By locator) {
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    public void waitForElementToBeClickable(final WebElement locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
@@ -63,6 +75,14 @@ public class WebDriverFactory {
 
     public void waitForElementToNotBeDisplayed(final By locator) {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
+
+    public void waitForElementToSelected(final By locator) {
+        wait.until(ExpectedConditions.elementToBeSelected(locator));
+    }
+
+    public void waitForElementToSelected(final WebElement locator) {
+        wait.until(ExpectedConditions.elementToBeSelected(locator));
     }
 
 }
