@@ -21,4 +21,13 @@ public class NavigationModule {
         navigationPage.verifySpecificPageIsLoaded(pageName);
     }
 
+    public void openSearchBar() {
+        navigationPage.openSearchBar();
+    }
+
+    public void searchTermAndSubmit(String searchTerm) {
+        navigationPage.typeInSearchTermInSearchBar(searchTerm);
+        navigationPage.submitSearch();
+    }
+
 }

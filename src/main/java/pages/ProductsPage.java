@@ -15,6 +15,7 @@ public class ProductsPage {
 
     private static final By PRODUCT_TILES_NAME = By.cssSelector(".woocommerce-loop-product__link ");
     private static final By PDP_PRODUCT_IMAGE = By.cssSelector(".product .woocommerce-product-gallery");
+    private static final By SEARCH_RESULT_PAGE = By.cssSelector(".search-results");
 
     public ProductsPage() {
         this.webDriverFactory = new WebDriverFactory();
@@ -35,6 +36,10 @@ public class ProductsPage {
 
     public void verifyPDPIsLoaded() {
         assertTrue(webDriverFactory.isElementDisplayed(PDP_PRODUCT_IMAGE));
+    }
+
+    public void verifySearchResultPageIsLoaded() {
+        assertTrue(webDriverFactory.isElementDisplayed(SEARCH_RESULT_PAGE));
     }
 
 }

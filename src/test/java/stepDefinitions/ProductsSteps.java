@@ -22,4 +22,9 @@ public class ProductsSteps {
         productsModule.verifyPDPIsLoaded();
     }
 
+    @When("Verify search page is loaded")
+    public void verifySearchResultPageIsLoaded() {
+        productsModule.verifySearchResultPageIsLoaded();
+    }
+
 }

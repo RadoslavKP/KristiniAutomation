@@ -17,4 +17,8 @@ public class ProductsModule {
         productsPage.verifyPDPIsLoaded();
     }
 
+    public void verifySearchResultPageIsLoaded() {
+        productsPage.verifySearchResultPageIsLoaded();
+    }
+
 }
