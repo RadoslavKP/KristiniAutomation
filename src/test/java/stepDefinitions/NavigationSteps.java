@@ -27,4 +27,14 @@ public class NavigationSteps {
         navigationModule.verifySpecificPageIsLoaded(pageName);
     }
 
+    @When("The user opens the Search bar")
+    public void openSearchBar() {
+        navigationModule.openSearchBar();
+    }
+
+    @When("The user types {string} in the Search bar and submits")
+    public void searchTermAndSubmit(String searchTerm) {
+        navigationModule.searchTermAndSubmit(searchTerm);
+    }
+
 }
