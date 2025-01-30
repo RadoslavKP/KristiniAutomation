@@ -26,6 +26,8 @@ public class ContactUsPage {
     private static final By CONTACT_US_EMAIL_VALIDATION = By.cssSelector("[type = 'email'].evf-error");
     private static final By CONTACT_US_TOPIC_VALIDATION = By.xpath("//label[@id='evf-472-field_xJivsqAS2c-2-error']");
 
+    private static final By CONTACT_US_GDPR_ACCEPT = By.cssSelector(".moove-gdpr-infobar-allow-all");
+    private static final By GDPR_BAR = By.cssSelector(".moove-gdpr-info-bar-container");
 
     public ContactUsPage() {
         this.webDriverFactory = new WebDriverFactory();
@@ -63,15 +65,21 @@ public class ContactUsPage {
     }
 
     public void checkTermsAndConditionsCheckbox() {
-        webDriverFactory.waitForElementToBeClickable(CONTACT_US_CHECKBOX);
-        WebElement checkbox = webDriver.findElement(CONTACT_US_CHECKBOX);
-        checkbox.click();
-        assertTrue(checkbox.isSelected());
+        closeGDPRBar();
+        WebElement locator = webDriver.findElement(CONTACT_US_CHECKBOX);
+        webDriverFactory.waitForElementToBeClickable(locator);
+        locator.click();
+        assertTrue(webDriverFactory.isElementSelected(locator));
     }
 
     public void verifyContactUsIsSubmitted() {
         webDriverFactory.waitForElementToNotBeDisplayed(CONTACT_US_FORM_SUBMIT);
         assertTrue(webDriverFactory.isElementDisplayed(CONTACT_US_SUCCESS_MESSAGE));
+    }
+
+    public void closeGDPRBar() {
+        webDriverFactory.waitForElementToBeDisplayed(GDPR_BAR);
+        webDriver.findElement(CONTACT_US_GDPR_ACCEPT).click();
     }
 
 }

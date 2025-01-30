@@ -8,8 +8,8 @@ Feature: Automation Regression TCs for Kristini-BG
     Then Verify "<Category>" page is loaded
 
     Examples:
-      | URL                     | Category       |
-      | http://kristini-bg.com/ | Галерия обекти |
+      | URL                     | Category |
+      | http://kristini-bg.com/ | Галерия  |
 
   @TC-2
   Scenario Outline: Navigation to PLP and PDP
