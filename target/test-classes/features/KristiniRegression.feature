@@ -52,3 +52,14 @@ Feature: Automation Regression TCs for Kristini-BG
     Examples:
       | URL                     | Category  |
       | http://kristini-bg.com/ | Контакти  |
+
+  @TC-5
+  Scenario Outline: Search Functionality
+    Given The user navigates to "<URL>" URL
+    When The user opens the Search bar
+    When The user types "Dixell" in the Search bar and submits
+    Then Verify search page is loaded
+
+    Examples:
+      | URL                     |
+      | http://kristini-bg.com/ |
