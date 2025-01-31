@@ -1,48 +1,65 @@
-Hello and welcome to the Test Automation project.
-The target of the automation is the http://kristini-bg.com/ website.
-The website does not have that many functionalities ,but the idea is to create an Regression set
-of tests that cover most of the functionalities during testing.
--------------------------------------------------------------------------------------------------------
-This would be helpful for people who wonder how does an Automation Project in a company conditions looks
-like.
-We are using Java + Selenium + Cucumber.
-For Project Management Tools we are using - Maven.
-With Maven I have added as a dependency the TestNG library.
-The project is connected to Jenkins and using a Jenkins Maven job all tests under KristiniRegression
-features are executed, also Cucumber reports with images are uploaded in Jenkins using a plugin.
-My further ideas are to use RestAPI to create some API Automation test, but again that will be done
-in the near future.
-I would try also to create an TestRun is TestRail and link the automation TCs to TCs in TestRail.
-With this integration + Jenkins we would be able to have a Automation TestRun which auto-updates the
-TCs results under the TestRail run (As used in many companies over the world)
---------------------------------------------------------------------------------------------------------
-Information in regards the Project Structure:
-Automation\src\test\java\stepDefinitions
-Here we create the steps definitions (Gherkin + Java Code).
-Automation\src\test\resources\features
-Here we store the features files, Placeholder.feature file is the one that is used to Test
-newly implemented steps/TCs.
-Automation\src\test\java\runners
-Here we store the MainRunner class which is used to configure CucumberOptions
-(Runtime options - such as Console output versions, reporting to HTML file)
-Automation\src\main\java\modules
-Here we store the module classes of the project, the modules are linked with steps defined in StepDefinitions
-class from above.
-Automation\src\main\java\pages
-Here we store the page classed of the project, the pages are linked to the steps defined in modules
-In short we have the following linkage:
-Create a new Gherkin Step in the Placeholder -> Define the step in the StepDefinitions.class ->
-Link the defined step to a new method in a module class -> Link the module method toward page method->
-Under page we create the Java Code in regards what should the step be doing
+Test Automation Project
+Overview
+Welcome to the Test Automation Project!
 
-Example code in page:
-   public void verifyGalleryPage() {
-        WebDriverFactory webDriverFactory = new WebDriverFactory();
-        assertTrue(webDriverFactory.isElementDisplayed(GALLERY_PAGE));
-    }
+The target website for this automation is Kristini-BG. While the website does not have many functionalities, the goal is to create a regression test suite that covers most of its features.
 
-When executed the verifyGalleryPage verifies that an element is displayed on the Chromedriver screen.
---------------------------------------------------------------------------------------------------------
-If you have any questions, feel free to contact me on GitHub - https://github.com/RadoslavKP
+This project serves as an example of how an Automation Framework looks in a real-world company environment.
 
+Technology Stack
+We are using the following technologies:
 
+Programming Language: Java
+Automation Frameworks: Selenium + Cucumber
+Project Management: Maven
+Testing Library: TestNG
+CI/CD: Jenkins
+Continuous Integration with Jenkins
+The project is integrated with Jenkins. A Jenkins Maven job runs all test cases under the KristiniRegression feature set. Additionally, Cucumber reports (including screenshots) are uploaded in Jenkins via a plugin.
+
+Future Enhancements
+Planned improvements include:
+
+API Automation: Implementing REST API tests.
+TestRail Integration: Creating Test Runs in TestRail and linking automated test cases to TestRail cases.
+Automated Test Reporting: With TestRail + Jenkins, we aim to auto-update test results within TestRail, following a common industry practice.
+Project Structure
+The project is structured as follows:
+
+Test Definitions & Features
+📂 src/test/java/stepDefinitions/
+
+Contains step definition files (Gherkin + Java code).
+📂 src/test/resources/features/
+
+Stores feature files written in Gherkin.
+The Placeholder.feature file is used for testing newly implemented steps/test cases.
+Test Runners
+📂 src/test/java/runners/
+
+Contains the MainRunner class.
+Configures CucumberOptions (e.g., console output format, reporting to HTML).
+Modules & Page Object Model (POM)
+📂 src/main/java/modules/
+
+Stores module classes that interact with step definitions.
+📂 src/main/java/pages/
+
+Contains page classes linked to module methods.
+Follows the Page Object Model (POM) for better maintainability.
+How Test Execution Works
+Create a new Gherkin step in Placeholder.feature.
+Define the step in StepDefinitions.java.
+Link the step to a new method in a module class.
+Connect the module method to a page class method.
+Implement the required Java code in the page class.
+Example Code (Page Class Method)
+java
+Copy
+Edit
+public void verifyGalleryPage() {
+    assertTrue(webDriverFactory.isElementDisplayed(GALLERY_PAGE));
+}
+When executed, verifyGalleryPage() ensures that a specific element is displayed on the screen.
+Contact
+If you have any questions, feel free to contact me on GitHub: RadoslavKP.
