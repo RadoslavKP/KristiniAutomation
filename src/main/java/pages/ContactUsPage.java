@@ -13,21 +13,21 @@ public class ContactUsPage {
 
     private final WebDriverFactory webDriverFactory;
     private final WebDriver webDriver;
-
-    private static final By CONTACT_US_FORM = By.cssSelector(".everest-forms");
+    //Contact Us Selectors
+    private static final By CONTACT_US_FORM = By.className("everest-forms");
     private static final By CONTACT_US_FORM_SUBMIT = By.cssSelector(".everest-forms-submit-button");
     private static final By CONTACT_US_NAME_FIELD = By.xpath("//label[span[text()='Име']]/following-sibling::input");
     private static final By CONTACT_US_EMAIL_FIELD = By.cssSelector(".evf-field-email [type = 'email']");
     private static final By CONTACT_US_TOPIC_FIELD = By.xpath("//label[span[text()='Тема']]/following-sibling::input");
     private static final By CONTACT_US_CHECKBOX = By.cssSelector(".choice-1 [type = 'checkbox']");
-    private static final By CONTACT_US_SUCCESS_MESSAGE= By.cssSelector(".everest-forms-notice");
-
+    private static final By CONTACT_US_SUCCESS_MESSAGE= By.className("everest-forms-notice");
+    //Validation Selectors
     private static final By CONTACT_US_NAME_VALIDATION = By.xpath("//label[@id='evf-472-field_lVizlNhYus-1-error']");
     private static final By CONTACT_US_EMAIL_VALIDATION = By.cssSelector("[type = 'email'].evf-error");
     private static final By CONTACT_US_TOPIC_VALIDATION = By.xpath("//label[@id='evf-472-field_xJivsqAS2c-2-error']");
-
-    private static final By CONTACT_US_GDPR_ACCEPT = By.cssSelector(".moove-gdpr-infobar-allow-all");
-    private static final By GDPR_BAR = By.cssSelector(".moove-gdpr-info-bar-container");
+    //GDPR Popup Selectors
+    private static final By CONTACT_US_GDPR_ACCEPT = By.className("moove-gdpr-infobar-allow-all");
+    private static final By GDPR_BAR = By.className("moove-gdpr-info-bar-container");
 
     public ContactUsPage() {
         this.webDriverFactory = new WebDriverFactory();
@@ -55,13 +55,9 @@ public class ContactUsPage {
     }
 
     public void populateContactUsForm() {
-        WebElement nameField = webDriver.findElement(CONTACT_US_NAME_FIELD);
-        WebElement emailField = webDriver.findElement(CONTACT_US_EMAIL_FIELD);
-        WebElement topicField = webDriver.findElement(CONTACT_US_TOPIC_FIELD);
-        emailField.sendKeys(RandomGenerators.generateRandomEmail());
-        // Here instead of hard codding values we can pass them dynamically from the Gherkin as a param
-        nameField.sendKeys("Test Test");
-        topicField.sendKeys("Tested Topic 1");
+        webDriver.findElement(CONTACT_US_NAME_FIELD).sendKeys("Test Test");
+        webDriver.findElement(CONTACT_US_EMAIL_FIELD).sendKeys(RandomGenerators.generateRandomEmail());
+        webDriver.findElement(CONTACT_US_TOPIC_FIELD).sendKeys("Tested Topic 1");
     }
 
     public void checkTermsAndConditionsCheckbox() {

@@ -43,14 +43,12 @@ public class NavigationPage {
     }
 
     public void navigateToSubCategoryFromPLP(String subCategory) {
-        WebDriverFactory webDriverFactory = new WebDriverFactory();
         List<WebElement> links = webDriver.findElements((SUB_CATEGORY_LINKS));
         WebElement expandOptions = webDriver.findElement(EXPAND_SUB_CATEGORY_LINKS);
         for (WebElement link : links) {
             if (link.getText().equalsIgnoreCase(subCategory)) {
                 expandOptions.click();
                 link.click();
-                webDriverFactory.waitForElementToBeClickable(SUB_CATEGORY_LINKS);
                 return;
             } else
                 throw new NoSuchElementException("Link with text '" + subCategory + "' not found in navigation menu.");

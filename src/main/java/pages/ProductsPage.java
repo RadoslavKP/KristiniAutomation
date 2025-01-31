@@ -15,7 +15,7 @@ public class ProductsPage {
 
     private static final By PRODUCT_TILES_NAME = By.cssSelector(".woocommerce-loop-product__link ");
     private static final By PDP_PRODUCT_IMAGE = By.cssSelector(".product .woocommerce-product-gallery");
-    private static final By SEARCH_RESULT_PAGE = By.cssSelector(".search-results");
+    private static final By SEARCH_RESULT_PAGE = By.className("search-results");
 
     public ProductsPage() {
         this.webDriverFactory = new WebDriverFactory();

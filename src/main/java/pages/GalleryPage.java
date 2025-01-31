@@ -15,9 +15,8 @@ public class GalleryPage {
 
     private static final By GALLERY_IMG_NUMBER = By.cssSelector(".modula-item-content");
     private static final By GALLERY_IMG_EXPANDED = By.cssSelector(".has-image.is-selected");
-    private static final By GALLERY_ARROW_RIGHT_DIRECTION = By.cssSelector(".is-next");
+    private static final By GALLERY_ARROW_RIGHT_DIRECTION = By.className("is-next");
     private static final By GALLERY_ARROW_LEFT_DIRECTION = By.cssSelector(".is-prev");
-    private static final By GALLERY_IMAGE_FULL_SCREEN = By.cssSelector("div.fancybox__slide.has-image.is-selected.is-done div img");
     private static final By GALLERY_IMAGE_FULL_SCREEN_CLOSE_BTN = By.cssSelector(".f-button[title='Close'] svg");
 
     public GalleryPage() {

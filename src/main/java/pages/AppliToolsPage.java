@@ -17,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AppliToolsPage {
 
+    private final String apiKey = "dl7o1pGptpnR1ghCTxu5yp9W37wcQgR4vHPB5GqmbJ0110";
     private final WebDriver webDriver;
     private Eyes eyes;
 
@@ -49,7 +50,7 @@ public class AppliToolsPage {
      * Starts an Applitools visual test.
      */
     public void startVisualTest(String appName, String testName, int width, int height) {
-        eyes.setApiKey("dl7o1pGptpnR1ghCTxu5yp9W37wcQgR4vHPB5GqmbJ0110");
+        eyes.setApiKey(apiKey);
         if (eyes == null) {
             throw new IllegalStateException("Eyes not initialized. Call initializeEyes() first.");
         }
