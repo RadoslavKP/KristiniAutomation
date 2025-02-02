@@ -1,7 +1,7 @@
 @kristiniVisualTestCases
 Feature: Visual Automation TCs for Krisitni-BG
 
-  @TC-4 @Visual
+  @TC-7 @Visual
   Scenario Outline: Gallery Page Visual Test
     Given The user navigates to "<URL>" URL
     When The user enables AppliTools Eyes connection
