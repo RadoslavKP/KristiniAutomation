@@ -20,7 +20,7 @@ public class AxeAccessibilityPage {
     private final Formatters formatters;
 
     private static final String REPORT_DIR = "target/accessibility-reports/";
-    private static final String RAW_JSON_FILE = REPORT_DIR + ".json";
+    private static final String RAW_JSON_FILE = REPORT_DIR + "pre-formatted-results.json";
     private static final String FORMATTED_JSON_FILE = REPORT_DIR + "formatted-axe-results.json";
 
     public AxeAccessibilityPage() {
