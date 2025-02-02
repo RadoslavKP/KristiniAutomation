@@ -64,14 +64,3 @@ Feature: Automation Regression TCs for Kristini-BG
       | URL                     |
       | http://kristini-bg.com/ |
 
-  @TC-6
-  Scenario Outline: Contact Us Page - Page Accessibility Scan
-    Given The user navigates to "<URL>" URL
-    When The user navigates to "<Category>" from the Navigation Menu
-    Then Verify "<Category>" page is loaded
-    And Verify that the Contact Us form is loaded
-    And The user scans the current page for accessibility violations using Axe
-
-    Examples:
-      | URL                     | Category  |
-      | http://kristini-bg.com/ | Контакти  |

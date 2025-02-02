@@ -8,9 +8,13 @@ import java.io.IOException;
 
 public class Formatters {
 
+    private final ObjectMapper objectMapper;
+
+    public Formatters (){
+        this.objectMapper = new ObjectMapper();
+    }
     public void formatJson (String inputFile, String outputFile) {
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
             Object json = objectMapper.readValue(new File(inputFile), Object.class);
