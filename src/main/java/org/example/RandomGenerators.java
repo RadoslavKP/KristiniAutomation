@@ -6,8 +6,7 @@ public class RandomGenerators {
 
     public static String generateRandomEmail() {
         Random random = new Random();
-        int randomNumber = 10000 + random.nextInt(90000);
-        return "kristnitesting" + randomNumber + "@kristini.bg";
+        return "kristnitesting" + random.nextInt(90000) + "@kristini.bg";
     }
 
 }
