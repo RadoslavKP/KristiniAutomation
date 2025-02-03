@@ -40,14 +40,18 @@ public class AxeAccessibilityPage {
     public void scanCurrentPageForViolationsWithAxe() {
         Results axeResults = axeBuilder.analyze(webDriver);
         List<Rule> violations = axeResults.getViolations();
+        String violationsJsonFile = REPORT_DIR + "violations.json";
+        String htmlReportFile = REPORT_DIR + "accessibility-report.html";
         try {
             ObjectMapper mapper = new ObjectMapper();
-            mapper.enable(SerializationFeature.INDENT_OUTPUT); // Pretty-print JSON
-            mapper.writeValue(new File(REPORT_DIR + "/violations.json"), violations);
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            mapper.writeValue(new File(violationsJsonFile), violations);
         } catch (IOException e) {
             e.printStackTrace();
         }
         formatters.formatJson(RAW_JSON_FILE, FORMATTED_JSON_FILE);
+        formatters.convertJsonToHtmlReport(violationsJsonFile, htmlReportFile);
     }
+
 
 }
