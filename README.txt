@@ -44,22 +44,3 @@ Modules & Page Object Model (POM)
 
 Stores module classes that interact with step definitions.
 📂 src/main/java/pages/
-
-Contains page classes linked to module methods.
-Follows the Page Object Model (POM) for better maintainability.
-How Test Execution Works
-Create a new Gherkin step in Placeholder.feature.
-Define the step in StepDefinitions.java.
-Link the step to a new method in a module class.
-Connect the module method to a page class method.
-Implement the required Java code in the page class.
-Example Code (Page Class Method)
-java
-Copy
-Edit
-public void verifyGalleryPage() {
-    assertTrue(webDriverFactory.isElementDisplayed(GALLERY_PAGE));
-}
-When executed, verifyGalleryPage() ensures that a specific element is displayed on the screen.
-Contact
-If you have any questions, feel free to contact me on GitHub: RadoslavKP.
